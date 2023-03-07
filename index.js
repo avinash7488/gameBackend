@@ -21,7 +21,7 @@ app.get("/",(req,res)=>{
 })
 
 // below code can be used to register by users in user site---------------->
-userRouter.post("/register",async(req,res)=>{
+app.post("/register",async(req,res)=>{
     const payload=req.body;
     const {password}= payload;
     try{
@@ -41,7 +41,7 @@ userRouter.post("/register",async(req,res)=>{
 
 
 // below code can be used to login by user---------------->
-userRouter.post("/login",async(req,res)=>{
+app.post("/login",async(req,res)=>{
     const {email,password}=req.body;
     try{
         const user = await UserModel.findOne({email});
