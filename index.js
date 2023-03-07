@@ -27,7 +27,7 @@ userRouter.post("/register",async(req,res)=>{
             if(err){
                 res.send({"msg":"somthing went wrong while hashing password"})
             }else{
-                const user = new UserModel({...payload,password:hash});
+                const user = new UserModel({...payload,password:hash,score:0,level:0});
                 await user.save();
                 res.send({"msg":"You have been registered successfully"})
             }
